@@ -10,31 +10,29 @@
 * Return: void
 */
 
-void print_remaining_days(int month, int day, int year) {
-    int daysInMonth[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-    int remainingDays = 0;
-    int isLeap = 0;
+void print_remaining_days(int month, int day, int year)
+{
+    if ((year % 4 == 0 || year % 400 == 0) && !(year % 100 == 0))
+    {
+        if (month >= 2 && day >= 60)
+        {
+            day++;
+        }
 
-    if ((year % 4 == 0 && year % 100 != 0) || year % 400 == 0) {
-        isLeap = 1;
+        printf("Day of the year: %d\n", day);
+        printf("Remaining days: %d\n", 366 - day);
     }
-
-    if (isLeap) {
-        daysInMonth[1] = 29;
+    else
+    {
+        if (month == 2 && day == 60)
+        {
+          day++;
+        }
+       
+        printf("Day of the year: %d\n", day);
+        printf("Remaining days: %d\n", 365 - day);
+        
     }
-
-    if (month < 1 || month > 12 || day < 1 || day > daysInMonth[month - 1]) {
-        printf("Invalid date: %02d/%02d/%04d\n", month, day, year);
-        return;
-    }
-
-    for (int i = month - 1; i < 12; i++) {
-        remainingDays += daysInMonth[i];
-    }
-
-    remainingDays -= day;
-
-    printf("Day of the year: %d\n", day);
-    printf("Remaining days: %d\n", remainingDays);
 }
+
 
