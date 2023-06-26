@@ -4,7 +4,7 @@
 /**
  * File:main.h
  * Auth: Masxole m
- * Desc: Header file containing prototypes for all functions
+ * Desc: Header file con:wtaining prototypes for all functions
  *       used in the 0x05-pointers_arrays_strings directory.
  */
 
